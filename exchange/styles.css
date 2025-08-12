@@ -1,0 +1,28 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #333;
+    color: white;
+    padding: 10px;
+}
+header button, header span {
+    margin: 0 10px;
+}
+.tabs button {
+    padding: 10px;
+    margin: 10px 5px;
+}
+.tab-content {
+    padding: 20px;
+}
+.book-card, .request-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+button {
+    margin: 5px;
+}
