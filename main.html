@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Swap Hub</title>
+    <link rel="stylesheet" href="css/mainf.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V4C20,2.89 19.1,2 18,2H12L10.59,3.41L9.17,2H6ZM12,12L16,16H13.5V20H10.5V16H8L12,12Z'/></svg>" alt="Book Icon">
+            </div>
+            <h1>Books Swap Hub</h1>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html">Login</a> | <a href="signup/signup.html">Register</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup/signup.html">Register</a></li>
+        </ul>
+    </div>
+   <!-- Hero Section -->
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="hero-content">
+        <h2>📚 Welcome to <span style="color: #ffcc00;">Books ReMarket</span></h2>
+        <p>Discover a smarter way to <strong>buy, sell, exchange, and donate</strong> books.</p>
+        <p>💡 <em>Affordable. Sustainable. Community-Driven.</em></p>
+        <a href="#features" class="btn">Explore Features</a>
+    </div>
+</section>
+
+
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="section-content">
+        <h2>🌍 About <span style="color: #ffcc00;">Books ReMarket</span></h2>
+        <p><strong>Our Mission:</strong> Reduce book waste and promote a culture of knowledge-sharing.</p>
+        <p><strong>Why Choose Us?</strong></p>
+        <ul>
+            <li>📖 <strong>Affordable Learning:</strong> Buy second-hand books at unbeatable prices.</li>
+            <li>🔄 <strong>Effortless Exchange:</strong> Swap books easily with like-minded readers.</li>
+            <li>🎁 <strong>Give Back:</strong> Donate books to spread the joy of reading.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features-section">
+    <div class="section-content">
+        <h2>🚀 Our Features</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <h3>🔄 <span style="color: #ffde59;">Book Exchange</span></h3>
+                <p>Swap books with users based on shared interests.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💰 <span style="color: #ffcc00;">Reselling</span></h3>
+                <p>Sell your used books securely & earn money.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎁 <span style="color: #ffcc00;">Book Donation</span></h3>
+                <p>Help others by donating books effortlessly.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔍 <span style="color: #ffcc00;">Advanced Search</span></h3>
+                <p>Filter books by price, category & condition.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💬 <span style="color: #ffcc00;">Real-Time Chat</span></h3>
+                <p>Connect with buyers and sellers instantly.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔒 <span style="color: #ffcc00;">Secure Payments</span></h3>
+                <p>UPI & cash-on-delivery options available.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <div class="section-content">
+        <h2>📩 Get in Touch</h2>
+        <p>📧 <strong>Email:</strong> <a href="mailto:phanendrabhs@gmail.com" style="color: #ffcc00;">phanendrabhs@gmail.com</a></p>
+        <p>📞 <strong>Call Us:</strong> <a href="tel:+916301666138" style="color: #ffcc00;">+91 6301666138</a></p>
+        <p>🏢 <strong>Visit Us:</strong> Hyderabad, India</p>
+        <p>📆 <strong>Support Hours:</strong> Mon-Sat, 9 AM - 7 PM</p>
+    </div>
+</section>
+
+
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+    function toggleMenu() {
+        var menu = document.getElementById("mobileMenu");
+        var btn = document.querySelector(".menu-btn");
+
+        // Toggle the active class
+        menu.classList.toggle("active");
+
+        // Toggle menu visibility
+        if (menu.classList.contains("active")) {
+            menu.style.display = "flex"; // Show menu
+        } else {
+            menu.style.display = "none"; // Hide menu
+        }
+    }
+    toggleMenu();
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function(event) {
+        var menu = document.getElementById("mobileMenu");
+        var btn = document.querySelector(".menu-btn");
+
+        if (!menu.contains(event.target) && !btn.contains(event.target)) {
+            menu.classList.remove("active");
+            menu.style.display = "none"; // Hide menu when clicking outside
+        }
+    });
+</script>
+
+</body>
+</html>
