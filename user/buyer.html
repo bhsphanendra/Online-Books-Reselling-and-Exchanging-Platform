@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Books</title>
+    <link rel="stylesheet" href="buyer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1>Buy Books</h1>
+        <div class="header-right">
+            <button id="homeBtn" class="nav-btn" onclick="window.location.href='../user.php'">
+                <i class="fas fa-home"></i> Home
+            </button>
+            <button id="filterBtn" class="nav-btn">
+                <i class="fas fa-filter"></i> Filter
+            </button>
+            <button id="cartBtn" class="nav-btn">
+                <i class="fas fa-shopping-cart"></i> Cart (<span id="cartCount">0</span>)
+            </button>
+            <div class="user-info">
+                <span class="username" id="displayUsername">Username</span>
+                <button id="logoutBtn" class="nav-btn" onclick="window.location.href='../main.html'">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filter Sidebar (Hidden by Default) -->
+    <div id="filterSidebar" class="filter-sidebar">
+        <div class="filter-header">
+            <h2>Filter Books</h2>
+            <span class="close-filter"><i class="fas fa-times"></i></span>
+        </div>
+        <label>Condition:</label>
+        <select id="conditionFilter">
+            <option value="all">All</option>
+            <option value="new">New</option>
+            <option value="used">Used</option>
+        </select>
+
+        <label>Price Range:</label>
+        <div class="price-range">
+            <input type="number" id="minPrice" placeholder="Min Price">
+            <span class="price-separator">-</span>
+            <input type="number" id="maxPrice" placeholder="Max Price">
+        </div>
+
+        <label>Category:</label>
+        <select id="categoryFilter">
+            <option value="all">All</option>
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Non-Fiction</option>
+            <option value="education">Education</option>
+        </select>
+
+        <button onclick="applyFilters()" class="apply-filter-btn">
+            <i class="fas fa-check"></i> Apply Filters
+        </button>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <span class="close-cart"><i class="fas fa-times"></i></span>
+        </div>
+        <div id="cartItems"></div>
+        <div class="cart-footer">
+            <h3>Total: ₹<span id="cartTotal">0</span></h3>
+            <button id="proceedToBuy" class="proceed-btn">
+                <i class="fas fa-shopping-bag"></i> Proceed to Buy
+            </button>
+        </div>
+    </div>
+
+    <!-- Payment Popup -->
+    <div id="paymentPopup" class="payment-popup">
+        <div class="popup-content">
+            <span class="close-popup"><i class="fas fa-times"></i></span>
+            <h2>Select Payment Method</h2>
+            <div class="payment-methods">
+                <label class="payment-method">
+                    <input type="radio" name="payment" value="cod" checked>
+                    <i class="fas fa-money-bill-wave"></i> Cash on Delivery
+                </label>
+                <label class="payment-method">
+                    <input type="radio" name="payment" value="upi">
+                    <i class="fas fa-mobile-alt"></i> UPI Payment
+                </label>
+                <label class="payment-method">
+                    <input type="radio" name="payment" value="qr">
+                    <i class="fas fa-qrcode"></i> QR Code
+                </label>
+            </div>
+            <div class="upi-input">
+                <input type="text" id="upiID" placeholder="Enter UPI ID">
+            </div>
+            <button id="confirmPayment" class="confirm-payment">
+                <i class="fas fa-check-circle"></i> Confirm Payment
+            </button>
+        </div>
+    </div>
+
+    <!-- Search Box -->
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchBox" placeholder="Search books..." onkeyup="searchBooks()">
+    </div>
+
+    <div class="book-container" id="bookContainer">
+        <!-- Example book card matching the image style -->
+    </div>
+    
+    <script>
+        // Function to toggle book description
+        function toggleDescription(button) {
+            const bookCard = button.closest('.book-description');
+            const shortDesc = bookCard.querySelector('.short-desc');
+            const fullDesc = bookCard.querySelector('.full-desc');
+            
+            if (fullDesc.style.display === "none") {
+                shortDesc.style.display = "none";
+                fullDesc.style.display = "block";
+                button.textContent = "Read Less";
+            } else {
+                shortDesc.style.display = "block";
+                fullDesc.style.display = "none";
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+    <script src="buyer.js"></script>
+</body>
+</html>
